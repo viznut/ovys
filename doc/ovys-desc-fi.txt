@@ -1,0 +1,116 @@
+Työnimi: Ovys ("omavaraisyhteisösimulaattori").
+
+Pelimäinen simulaattoriohjelma, joka mallintaa luonnonympäristöä ja sen
+varassa elävää ihmisyhteisöä rakennelmineen.
+
+Kaikki ihmisyhteisön elämälle oleellinen mallinnetaan ainakin jonkinlaisella
+palikkatasolla. Erityistä huomiota kiinnitetään alusta alkaen siihen, että
+resurssitalous (etenkin energia ja lämpö) mallinnetaan karkeissa
+palikkamalleissakin jokseenkin todenmukaisesti.
+
+NÄKÖKULMAT:
+
+Oppiminen. Luonnonprosessit, joiden kanssa esimerkiksi permakulttuurissa
+operoidaan, ovat monimutkaisia, ja niissä kaikki vaikuttaa kaikkeen.
+Kunnollisen intuitiivisen ymmärryksen kehittäminen niihin on vuosikymmenten
+prosessi. Ovys toivottavasti voi helpottaa ja nopeuttaa tällaisen
+ymmärryksen muodostumista, vaikka se esittääkin luonnonprosesseista vain
+karkean mallin.
+
+Suunnittelu/ideointi. Vaikkei Ovysin tarkoitus olekaan olla vakavasti
+otettava tosimaailman mallinnussofta, voi sillä testata monenlaisia ideoita
+ennen niiden käytännön toteuttamista tai tarkempaa suunnitteluprosessia.
+Myös pelaamisen varjolla tapahtuva kokeilu voi johtaa uusiin ideoihin ja
+keksintöihin.
+
+Tekoälyavusteinen ongelmanratkaisu. Tekoälyt ovat menestyneet häkellyttävän
+hyvin esimerkiksi pelien pelaamisessa ja esineiden suunnittelussa. Ovysiä
+"pelaava" neuroverkko tms saattaa siis hyvinkin keksiä käytännön
+suunnitteluongelmiin sellaisia ratkaisuja, joita kukaan ihminen ei ole
+tullut edes ajatelleeksi. Ideaalitapauksessa Ovys-tekoäly oppii luomaan
+käyttökelpoisia hahmotelmia kestävämmälle ihmiskulttuurille.
+
+Peli. Koska simulaattoria voi pelata myös pelinä, voi se tuoda piiriinsä
+ihmisiä, joilla ei ole paljoakaan varsinaista kiinnostusta sen aihepiiriin.
+Näin peliaspekti toimii "propagandavälineenä", joka tuo ihmisiä lähemmäksi
+permakulttuuri- ym. aiheita. Peliaspekti antaa projektille myös omanlaistaan
+näkyvyyttä ja helpottaa esimerkiksi rahoituksen järjestämistä. Pelinä ei
+kuitenkaan tavoitella massayleisöä vaan sopivaa indie-niche-lokeroa (vrt.
+Dwarf Fortress).
+
+Fantasia. Luovan mielikuvituksen kiihottamiseksi ja mm. kaukaisemman
+tulevaisuuden ideoimiseksi on hyvä, jos simulaattori antaa tilaa myös
+spekulatiivisemmille mahdollisuuksille. Esimerkiksi pieneliöille voi antaa
+sellaisia aineenmuunnosominaisuuksia, jollaisia ei tunneta olemassaolevilta
+lajeilta, ja maailman perusvakiot (ilmakehä, auringon säteily) voi säätää
+vastaamaan vieraita planeettoja. Fantastisuus myös auttaa pitämään
+simulaatiomoottorin riittävän geneerisenä ja välttämään lukkiutumisen liian
+tuttuihin oletuksiin.
+
+TOTEUTUS:
+
+Ympäristö mallinnetaan alkuvaiheessa kuutioruudukkona, jossa kullakin
+kuutiolla on yleistyyppi ja joukko parametreja. Parametreista osa esiintyy
+kaikentyyppisillä kuutioilla (lämpötila, kosteus), ja osa määräytyy tyypin
+mukaan (seinän paksuus, maan happamuus). Simulaatiomoottori suunnitellaan
+siten, että myöhemmässä vaiheessa ruudukon sijaan voidaan käyttää myös
+esimerkiksi vektori-ruudukko-hybiridisiä maailmanesitystapoja.
+
+Simulaatiomoottori pidetään alusta asti erillisenä ohjelmana, johon voidaan
+kytkeytyä erilaisilla käyttöliittymäohjelmilla, skripteillä ym. Nämä voivat
+vaikuttaa simulaatioon joko suoraan (suunnittelukäyttöliittymät) tai
+simuloitujen ihmishahmojen ohjaamisen kautta (pelikäyttöliittymät,
+agenttitekoälyt).
+
+Kaikki projektin tuloksena syntyvät ohjelmistot, dokumentit ym. tullaan
+julkaisemaan vapaan ohjelmiston periaatteiden mukaisesti.
+
+En ole minkään simuloitavan osa-alueen asiantuntija. Olen lukenut muutaman
+kurssin verran fysiikkaa yliopistotasolla, tutustunut permakulttuuriin
+enimmäkseen teorian kautta ja asunut yhteisössä. Toteutan simulaation
+ensimmäiset versiot parhaan ymmärrykseni mukaan ja olemassaolevien
+simulaatiomallien kuvauksia hyödyntäen. Tärkeintä alkuvaiheessa on
+jokseenkin mielekkääntuntuisesti toimiva prototyyppi, mutta pyrin
+suunnittelemaan yleisrakenteen siten, että karkeat osamallit voi myöhemmin
+tarvittaessa korvata monipuolisemmilla ja tarkemmilla.
+
+Simuloitavat osa-alueet "lopullisessa" ohjelmistossa:
+- Eloton taso
+  - Aurinko & säteily (sijainti eri vuoden- ja vuorokaudenaikoina, säteily,
+    säteilyn heijastuminen pinnoista)
+  - Lämpö (säteily, johtuminen, varautuminen eri aineisiin)
+  - Ilman liike (lämmön (ym.) siirtyminen ilman mukana, materiaalien
+    hengittävyys, ilmanpaineet ja -kosteudet)
+  - Veden kiertokulku (haihtuminen, sataminen, imeytyminen, valuminen,
+    pohjavesi)
+  - Palaminen (ml. lopputuotteet koostumuksineen)
+- Elävä taso
+  - Organismien lisääntyminen, geenidatan yhdistyminen, eliön ominaisuuksien
+    määräytyminen genotyypistä
+  - Pieneliöt (hajoamisprosessi vapautuvine lämpöineen, hapatuksen kaltaiset
+    prosessit)
+  - Maa (kuohkeuden, kosteuden ja happamuuden kaltaiset ominaisuudet;
+    ravinteet ja niiden kierto; pinnankorkeuden mikrovaihtelut)
+  - Kasvit (juuret, maanpäälliset osat, kasvaminen, ravinteiden ja valon
+    tarve, lisääntyminen, hedelmät)
+  - Sienet (rihmastot, itiöemät)
+  - Eläimet (ml. ihmiset)
+    - Yleinen liikkuminen ja toiminta (ympäristön muokkaaminen eri tavoin,
+      apuvälineiden valmistus, vuorovaikutus (ml. "taistelut"))
+    - Fysiologia (kehon tarpeet, ruoansulatus, vararavinnon säilöntä,
+      sairastuminen, kehosta ulos säteilevä+johtuva lämpö)
+    - Psykologia (unentarve, erilaiset vuorovaikutus- ja yksinolotarpeet,
+      taitojen opettaminen/oppiminen, persoonallisuuspiirteet, ym.ym.)
+    - Kehitysvaiheet (lapsuus, aikuisuus, vanhuus, kuolema)
+
+Mekaaniset laitteet, käyttöesineet ja niiden valmistusprosessit mallinnetaan
+ainakin ensimmäisissä versioissa pelkkinä apusääntöinä, ei siis osana
+fysiikkasimulaatiota.
+
+Prototyyppi 1:
+- Elottoman tason perusteet (aurinko, lämpö, ilma)
+- Perustason käyttöliittymä (simulaation seuraaminen ja hallinta,
+  maailman muokkaus)
+- Varhainen testisovellus: etsijäalgoritmi energiatehokkaille rakennuksille
+  (inspiraationa N.J.Jones - Architecture as a Complex Adaptive System)
+
